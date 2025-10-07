@@ -24,6 +24,11 @@ url = https://github.com/rphii/rlwcwidth.git
 revision = main
 ```
 
+\[$PROJECTROOT/meson.build\]
+```meson.build
+rlwcwidth_dep = dependency('rlwcwidth', fallback : ['rlwcwidth', 'rlwcwidth_dep'], default_options: ['default_library=static'])
+```
+
 ## Why
 
 Because somehow GNU's `wcwidth` didn't seem to work properly for me.
