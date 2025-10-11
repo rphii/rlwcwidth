@@ -84,12 +84,13 @@ int main(void) {
     }
 
     so_clear(&out);
-    for(size_t i = 0; i < 30; ++i) {
+    for(size_t i = 0; i < ' '; ++i) {
         so_fmt(&out, "%u,\n", 0);
     }
-    for(size_t i = 30; i < 0x80; ++i) {
+    for(size_t i = ' '; i < 0x7f; ++i) {
         so_fmt(&out, "%u,\n", 1);
     }
+    so_fmt(&out, "0,\n"); // 0x7f, del
     for(size_t i = 0x80; i <= UNICODE_MAX; ++i) {
         so_fmt(&out, "%u%s\n", widths[i], i < UNICODE_MAX ? "," : "");
     }
